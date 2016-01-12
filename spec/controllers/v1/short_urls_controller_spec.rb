@@ -24,11 +24,11 @@ RSpec.describe V1::ShortUrlsController, type: :controller do
   # V1::ShortUrl. As you add validations to V1::ShortUrl, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+     { url: 'http://abc.example.com'} 
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -40,7 +40,7 @@ RSpec.describe V1::ShortUrlsController, type: :controller do
     it "assigns all v1_short_urls as @v1_short_urls" do
       short_url = V1::ShortUrl.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:v1_short_urls)).to eq([short_url])
+      expect(assigns(:short_urls)).to eq([short_url])
     end
   end
 
@@ -48,22 +48,7 @@ RSpec.describe V1::ShortUrlsController, type: :controller do
     it "assigns the requested v1_short_url as @v1_short_url" do
       short_url = V1::ShortUrl.create! valid_attributes
       get :show, {:id => short_url.to_param}, valid_session
-      expect(assigns(:v1_short_url)).to eq(short_url)
-    end
-  end
-
-  describe "GET #new" do
-    it "assigns a new v1_short_url as @v1_short_url" do
-      get :new, {}, valid_session
-      expect(assigns(:v1_short_url)).to be_a_new(V1::ShortUrl)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested v1_short_url as @v1_short_url" do
-      short_url = V1::ShortUrl.create! valid_attributes
-      get :edit, {:id => short_url.to_param}, valid_session
-      expect(assigns(:v1_short_url)).to eq(short_url)
+      expect(assigns(:short_url)).to eq(short_url)
     end
   end
 
@@ -71,89 +56,17 @@ RSpec.describe V1::ShortUrlsController, type: :controller do
     context "with valid params" do
       it "creates a new V1::ShortUrl" do
         expect {
-          post :create, {:v1_short_url => valid_attributes}, valid_session
+          post :create, {:short_url => valid_attributes}, valid_session
         }.to change(V1::ShortUrl, :count).by(1)
       end
 
-      it "assigns a newly created v1_short_url as @v1_short_url" do
-        post :create, {:v1_short_url => valid_attributes}, valid_session
-        expect(assigns(:v1_short_url)).to be_a(V1::ShortUrl)
-        expect(assigns(:v1_short_url)).to be_persisted
-      end
-
-      it "redirects to the created v1_short_url" do
-        post :create, {:v1_short_url => valid_attributes}, valid_session
-        expect(response).to redirect_to(V1::ShortUrl.last)
+      it "assigns a newly created short_url as @short_url" do
+        post :create, {:short_url => valid_attributes}, valid_session
+        expect(assigns(:short_url)).to be_a(V1::ShortUrl)
+        expect(assigns(:short_url)).to be_persisted
       end
     end
-
-    context "with invalid params" do
-      it "assigns a newly created but unsaved v1_short_url as @v1_short_url" do
-        post :create, {:v1_short_url => invalid_attributes}, valid_session
-        expect(assigns(:v1_short_url)).to be_a_new(V1::ShortUrl)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, {:v1_short_url => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
-      end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested v1_short_url" do
-        short_url = V1::ShortUrl.create! valid_attributes
-        put :update, {:id => short_url.to_param, :v1_short_url => new_attributes}, valid_session
-        short_url.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested v1_short_url as @v1_short_url" do
-        short_url = V1::ShortUrl.create! valid_attributes
-        put :update, {:id => short_url.to_param, :v1_short_url => valid_attributes}, valid_session
-        expect(assigns(:v1_short_url)).to eq(short_url)
-      end
-
-      it "redirects to the v1_short_url" do
-        short_url = V1::ShortUrl.create! valid_attributes
-        put :update, {:id => short_url.to_param, :v1_short_url => valid_attributes}, valid_session
-        expect(response).to redirect_to(short_url)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the v1_short_url as @v1_short_url" do
-        short_url = V1::ShortUrl.create! valid_attributes
-        put :update, {:id => short_url.to_param, :v1_short_url => invalid_attributes}, valid_session
-        expect(assigns(:v1_short_url)).to eq(short_url)
-      end
-
-      it "re-renders the 'edit' template" do
-        short_url = V1::ShortUrl.create! valid_attributes
-        put :update, {:id => short_url.to_param, :v1_short_url => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested v1_short_url" do
-      short_url = V1::ShortUrl.create! valid_attributes
-      expect {
-        delete :destroy, {:id => short_url.to_param}, valid_session
-      }.to change(V1::ShortUrl, :count).by(-1)
-    end
-
-    it "redirects to the v1_short_urls list" do
-      short_url = V1::ShortUrl.create! valid_attributes
-      delete :destroy, {:id => short_url.to_param}, valid_session
-      expect(response).to redirect_to(v1_short_urls_url)
-    end
+    
   end
 
 end
