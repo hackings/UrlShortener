@@ -10,7 +10,8 @@ gem 'spring', :group => :development
 
 gem 'sqlite3'
 
-
+gem 'responders', '~> 2.0'
+gem 'rabl'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -26,3 +27,16 @@ gem 'sqlite3'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'pry'
+end
+
+group :test do
+  gem 'database_cleaner'
+end
