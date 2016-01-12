@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  namespace :v1 do resources :short_urls, except: [:new, :edit] end
+  
+  concern :base_api do
+    resources :short_urls
+  end  
+  
+  namespace :v1, defaults: {format: :json} do
+    concerns :base_api
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
