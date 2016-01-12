@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+ActiveRecord::Base.transaction do
+  CSV.foreach("test/fixtures/urls.csv") do |row|
+    short_url = V1::ShortUrl.create( url: row )
+    puts "creating -- #{short_url.inspect}"
+  end
+end   
