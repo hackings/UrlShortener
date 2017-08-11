@@ -1,17 +1,16 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.8'
 
 gem 'rails-api'
 
 gem 'spring', :group => :development
 
 
-gem 'mysql2'
-
-gem 'responders', '~> 2.0'
-gem 'rabl'
+gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'responders'
+gem 'rabl', '0.11.6'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -31,7 +30,6 @@ gem 'rabl'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'pry'
@@ -39,4 +37,6 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'shoulda-matchers'
 end
