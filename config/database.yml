@@ -12,7 +12,7 @@ development: &development
 test: &test
   <<: *defaults
   adapter: mysql2
-  database: url-sortner
+  database: url-sortner-test
   pool: 5
   timeout: 5000
   username: root
