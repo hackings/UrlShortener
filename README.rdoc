@@ -1,10 +1,16 @@
+=== System dependencies
+   ruby version ruby-2.0.0-p648
+   mysql Server version: 5.7.16
+
 === Run Unit tests commands
+   gem install bundler
    bundle install
    bundle exec rake db:create
    bundle exec rake db:migrate
    bundle exec rspec spec
      
 === Run Performance tests commands
+   gem install bundler
    bundle install
    bundle exec rake db:create
    bundle exec rake db:migrate
