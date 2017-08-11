@@ -1,0 +1,15 @@
+defaults: &defaults
+
+development: &development
+  <<: *defaults
+  adapter: sqlite3
+  database: url-sortner
+  pool: 5
+  timeout: 5000
+
+test: &test
+  <<: *defaults
+  adapter: sqlite3
+  database: url-sortner
+  pool: 5
+  timeout: 5000
