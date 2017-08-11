@@ -12,6 +12,9 @@ gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem 'responders'
 gem 'rabl', '0.11.6'
 
+gem 'rails-perftest'
+gem 'ruby-prof'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
