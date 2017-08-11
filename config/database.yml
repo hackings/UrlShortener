@@ -1,0 +1,19 @@
+defaults: &defaults
+
+development: &development
+  <<: *defaults
+  adapter: mysql2
+  database: url-sortner
+  pool: 5
+  timeout: 5000
+  username: root
+  password:
+
+test: &test
+  <<: *defaults
+  adapter: mysql2
+  database: url-sortner
+  pool: 5
+  timeout: 5000
+  username: root
+  password:
