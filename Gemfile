@@ -8,7 +8,7 @@ gem 'rails-api'
 gem 'spring', :group => :development
 
 
-gem 'sqlite3'
+gem 'mysql2'
 
 gem 'responders', '~> 2.0'
 gem 'rabl'
