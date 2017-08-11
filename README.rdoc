@@ -5,14 +5,14 @@
 === Run Unit tests commands
    gem install bundler
    bundle install
-   bundle exec rake db:create
-   bundle exec rake db:migrate
-   bundle exec rspec spec
+   RAILS_ENV=test bundle exec rake db:create
+   RAILS_ENV=test bundle exec rake db:migrate
+   RAILS_ENV=test bundle exec rspec spec
      
 === Run Performance tests commands
    gem install bundler
    bundle install
-   bundle exec rake db:create
-   bundle exec rake db:migrate
-   bundle exec rake test:benchmark
+   RAILS_ENV=test bundle exec rake db:create
+   RAILS_ENV=test bundle exec rake db:migrate
+   RAILS_ENV=test bundle exec rake test:benchmark
    
